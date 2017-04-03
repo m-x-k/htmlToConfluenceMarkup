@@ -1,0 +1,40 @@
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'application'
+apply plugin: 'com.github.johnrengelman.shadow'
+
+
+buildscript {
+    repositories {
+        mavenCentral()
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+    }
+    dependencies {
+        classpath "com.github.jengelman.gradle.plugins:shadow:1.2.3"
+    }
+}
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    compile 'org.eclipse.mylyn.docs:wikitext.core:3.0.6'
+    compile 'org.eclipse.mylyn.docs:org.eclipse.mylyn.wikitext.confluence:3.0.6'
+}
+
+mainClassName = 'com.mxk.convert.confluence.ConvertToConfluence'
+
+jar {
+    manifest {
+        attributes 'Main-Class': mainClassName
+    }
+}
+
+shadowJar {
+    baseName = 'htmlToConfluenceMarkup'
+    classifier = null
+    version = null
+}
