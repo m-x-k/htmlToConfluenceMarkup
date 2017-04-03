@@ -11,7 +11,7 @@ Simple app to convert html file into Confluence content using the eclipse mylyn.
 Checkout this repository locally and navigate to the following folder on the command line. Execute:
 
 ```
-./gradlew clean build
+./gradlew clean build shadowJar
 ```
 
 ## Example usage
